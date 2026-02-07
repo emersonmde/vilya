@@ -7,8 +7,8 @@ project:
   language:     "Verilog"
   clock_hz:     33000000
 
-  # 2x2 tiles (~334x216 uM)
-  tiles: "2x2"
+  # 6x2 tiles — 1600-bit state register + Keccak round logic needs ~66% utilization at this size
+  tiles: "6x2"
 
   top_module:  "tt_um_emersonmde_vilya"
 
