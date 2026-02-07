@@ -1,0 +1,53 @@
+# Tiny Tapeout project information
+project:
+  title:        "Vilya: SHA-3-256 Hardware Accelerator"
+  author:       "Matthew Emerson"
+  discord:      ""
+  description:  "SHA-3-256 hash engine with 8-bit byte interface, pre-padded input, 24-cycle Keccak-f[1600]"
+  language:     "Verilog"
+  clock_hz:     33000000
+
+  # 2x2 tiles (~334x216 uM)
+  tiles: "2x2"
+
+  top_module:  "tt_um_emersonmde_vilya"
+
+  source_files:
+    - "tt_um_emersonmde_vilya.v"
+    - "sha3_controller.v"
+    - "keccak_round.v"
+    - "keccak_rc.v"
+
+pinout:
+  # Inputs — data byte
+  ui[0]: "data_in[0]"
+  ui[1]: "data_in[1]"
+  ui[2]: "data_in[2]"
+  ui[3]: "data_in[3]"
+  ui[4]: "data_in[4]"
+  ui[5]: "data_in[5]"
+  ui[6]: "data_in[6]"
+  ui[7]: "data_in[7]"
+
+  # Outputs — hash result byte
+  uo[0]: "data_out[0]"
+  uo[1]: "data_out[1]"
+  uo[2]: "data_out[2]"
+  uo[3]: "data_out[3]"
+  uo[4]: "data_out[4]"
+  uo[5]: "data_out[5]"
+  uo[6]: "data_out[6]"
+  uo[7]: "data_out[7]"
+
+  # Bidirectional pins — control/status
+  uio[0]: "start"
+  uio[1]: "data_valid"
+  uio[2]: "last_block"
+  uio[3]: "result_next"
+  uio[4]: "busy"
+  uio[5]: "result_ready"
+  uio[6]: "absorb_ready"
+  uio[7]: "(reserved)"
+
+# Do not change!
+yaml_version: 6
