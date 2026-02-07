@@ -64,6 +64,6 @@ module tt_um_emersonmde_vilya (
     );
 
     // Suppress unused input warnings
-    wire _unused = &{ena, 1'b0};
+    wire _unused = &{ena, uio_in[7:4], 1'b0};
 
 endmodule
